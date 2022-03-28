@@ -8,10 +8,10 @@ def main():
         while True:
             user_input = input()
             if user_input == "exit":
-                break
+                sys.exit(0)
             print(number_to_word(int(user_input)))
     except SystemExit:
-        sys.exit(1)
+        sys.exit(0)
 
 def number_to_word(number):
     if number == 0:

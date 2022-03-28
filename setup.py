@@ -1,7 +1,4 @@
-import setuptools 
-
-with open("requirements.txt", "r", encoding="utf-8") as fh:
-    requirements = fh.read()
+import setuptools
 
 setuptools.setup( 
     name='numbers-to-words', 
@@ -10,7 +7,6 @@ setuptools.setup(
     author_email='ehiagheaigg@gmail.com', 
     description='Convert number to words', 
     packages=setuptools.find_packages(),
-    install_requires = [requirements],
     entry_points={ 
         'console_scripts': [ 
             'numbers-to-words = numbers_to_words.numbers_to_words:main' 
