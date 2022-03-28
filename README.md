@@ -1,6 +1,6 @@
 ### How to run the app
 - Install dependencies: 
-    ```make install```
+    ```sudo python3 setup.py install``` or ```make install```
 This will request for your system password to bundle the app as a cli tool on your computer
 - Start the app in interactive mode:
     ```numbers-to-words```
