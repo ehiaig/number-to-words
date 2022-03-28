@@ -1,0 +1,10 @@
+setup.py
+app/__init__.py
+numbers_to_words/__init__.py
+numbers_to_words/numbers_to_words.py
+numbers_to_words.egg-info/PKG-INFO
+numbers_to_words.egg-info/SOURCES.txt
+numbers_to_words.egg-info/dependency_links.txt
+numbers_to_words.egg-info/entry_points.txt
+numbers_to_words.egg-info/requires.txt
+numbers_to_words.egg-info/top_level.txt

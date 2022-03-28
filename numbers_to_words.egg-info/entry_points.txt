@@ -1,0 +1,3 @@
+[console_scripts]
+numbers-to-words = numbers_to_words.numbers_to_words:main
+
