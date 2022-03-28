@@ -1,22 +1,17 @@
-import argparse
-
-def main(): 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("number",type=int)
-    args = parser.parse_args()
-    print(number_to_word(args.number))
-    
-import argparse 
-
-tens_words = {1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six', 7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten', 11: 'Eleven', 12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', 15: 'Fifteen', 16: 'Sixteen', 17: 'Seventeen', 18: 'Eighteen', 19: 'Nineteen'}
-twenties_words = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety', "Hundred"]
+import sys
+tens_words = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen'}
+twenties_words = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', "hundred"]
 
 
-def main(): 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("number",type=int)
-    args = parser.parse_args()
-    print(number_to_word(args.number).lower())
+def main():
+    try:
+        while True:
+            user_input = input()
+            if user_input == "exit":
+                break
+            print(number_to_word(int(user_input)))
+    except SystemExit:
+        sys.exit(1)
 
 def number_to_word(number):
     if number == 0:
@@ -31,7 +26,7 @@ def number_to_word(number):
     elif 1000 <= number <= 99999:
         return get_thousand(number)
     elif number == 100000:
-        return "One hundred thousand"
+        return "one hundred thousand"
     else:
         print("Number out of range. Only specify between 1-100000")
 
@@ -47,15 +42,15 @@ def get_tens(num):
 def get_hundred(num):
     hundred, remainder = divmod(num, 100)
     if remainder == 0:
-        return tens_words[hundred] + ' Hundred'
+        return tens_words[hundred] + ' hundred'
     else:
         rem_res = get_tens(remainder)
-        return tens_words[hundred] + ' Hundred and ' + rem_res
+        return tens_words[hundred] + ' hundred and ' + rem_res
 
 
 def get_thousand(num):
     hundred, remainder = divmod(num, 1000)
     if remainder < 100:
-        return get_tens(hundred) + ' Thousand and ' + get_tens(remainder)
-    result = get_tens(hundred) + ' Thousand ' + get_hundred(remainder) 
+        return get_tens(hundred) + ' thousand and ' + get_tens(remainder)
+    result = get_tens(hundred) + ' thousand, ' + get_hundred(remainder) 
     return result
