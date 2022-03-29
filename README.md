@@ -1,7 +1,8 @@
 ### How to run the app
 #### Run the actual python file:
- ```cd numbers_to_words```
- ``` python3 numbers_to_words```
+ `cd numbers_to_words`
+ Then run:
+ `python3 numbers_to_words.py`
 #### Run as an installable tool:
 - Install dependencies: 
     ```sudo python3 setup.py install``` or ```make install```
