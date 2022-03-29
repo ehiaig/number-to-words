@@ -7,10 +7,12 @@ def main():
     try:
         while True:
             user_input = input()
-            if isinstance(user_input, str) or isinstance(user_input, float):
+            if isinstance(user_input, str):
                 if user_input != "exit":
                     sys.exit("String not allowed.")
                 sys.exit(0)
+            if not isinstance(user_input, int):
+                sys.exit("Only integers are allowed.")
             print(number_to_word(int(user_input)))
     except SystemExit:
         sys.exit(0)
@@ -24,9 +26,9 @@ def number_to_word(number):
         tens, below_ten = divmod(number, 10) 
         return twenties_words[tens - 2] + '-' + tens_words[below_ten]
     elif 100 <= number <= 999:
-        return get_hundred(number)
+        return get_hundreds(number)
     elif 1000 <= number <= 99999:
-        return get_thousand(number)
+        return get_thousands(number)
     elif number == 100000:
         return "one hundred thousand"
     else:
@@ -41,18 +43,17 @@ def get_tens(num):
         return twenties_words[tens - 2] + '-' + tens_words[below_ten]
 
 
-def get_hundred(num):
-    hundred, remainder = divmod(num, 100)
+def get_hundreds(num):
+    divisor, remainder = divmod(num, 100)
     if remainder == 0:
-        return tens_words[hundred] + ' hundred'
+        return tens_words[divisor] + ' hundred'
     else:
         rem_res = get_tens(remainder)
-        return tens_words[hundred] + ' hundred and ' + rem_res
+        return tens_words[divisor] + ' hundred and ' + rem_res
 
 
-def get_thousand(num):
-    hundred, remainder = divmod(num, 1000)
+def get_thousands(num):
+    divisor, remainder = divmod(num, 1000)
     if remainder < 100:
-        return get_tens(hundred) + ' thousand and ' + get_tens(remainder)
-    result = get_tens(hundred) + ' thousand, ' + get_hundred(remainder) 
-    return result
+        return get_tens(divisor) + ' thousand and ' + get_tens(remainder)
+    return get_tens(divisor) + ' thousand, ' + get_hundreds(remainder)
