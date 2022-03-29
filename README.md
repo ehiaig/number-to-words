@@ -1,4 +1,7 @@
 ### How to run the app
+#### Run the actual python file:
+ ```cd ```
+#### Run as an installable tool:
 - Install dependencies: 
     ```sudo python3 setup.py install``` or ```make install```
 This will request for your system password to bundle the app as a cli tool on your computer
