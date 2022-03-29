@@ -7,7 +7,9 @@ def main():
     try:
         while True:
             user_input = input()
-            if user_input == "exit":
+            if isinstance(user_input, str) or isinstance(user_input, float):
+                if user_input != "exit":
+                    sys.exit("String not allowed.")
                 sys.exit(0)
             print(number_to_word(int(user_input)))
     except SystemExit:
